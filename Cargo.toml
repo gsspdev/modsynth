@@ -1,38 +1,30 @@
 [package]
-name = "gssp_rust_template"
+name = "modsynth"
 version = "0.1.0"
 authors = ["gsspdev"]
 edition = "2021"
 rust-version = "1.74.1"
-description = "A template for gsspdev's rust projects"
-documentation = "https://github.com/gsspdev/gssp_rust_template/README.md"
-readme = "README.md"
-# homepage = ""
-repository = "https://github.com/gsspdev/gssp_rust_template"
-license = "MIT"
-# license-file = ""
-keywords = ["development", "template"]
+description = "A modular synthesizer written in Rust."
+repository = "https://github.com/gsspdev/modsynth"
 
 [workspace]
 # members = ["gssp_utils"]
 workspace = { members = ["gssp_utils"] }
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [workspace.dependencies]
 regex = { workspace = true, features = ["unicode"] }
 tempdir = "0.3.7"
 rand = "0.8.4"
 cc = "1.0.67"
-
-[dependencies]
-gssp_utils = { path = "gssp_utils" }
 regex = "1.5.5"
 serde = { version = "1.0.193", features = ["alloc", "derive", "rc"] }
 
+[dependencies]
+gssp_utils = { path = "gssp_utils" }
+
 # Build-dependencies are used only when compiling a package for building.
 [build-dependencies]
-cc = "1.0.67"
+cc = { workspace = true }} 
 
 # Dev-depencies are used for compiling tests, examples, and benchmarks.
 # They are not used when compiling for building, and not propogated to other packages
