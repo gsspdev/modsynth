@@ -2,7 +2,7 @@ image: archlinux
 packages:
   - rustup
 sources:
-  - https://github.com/gsspdev/gssp-rust-template.git
+  - https://github.com/gsspdev/modsynth.git
 tasks:
   - setup: |
       rustup toolchain install nightly stable
