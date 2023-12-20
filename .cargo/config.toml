@@ -4,10 +4,3 @@ c = "check"
 t = "test"
 r = "run"
 rr = "run --release"
-
-[build]
-jobs = 4
-rustc = "rustc"
-
-[doc]
-browser = "firefox"

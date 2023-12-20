@@ -8,26 +8,25 @@ description = "A modular synthesizer written in Rust."
 repository = "https://github.com/gsspdev/modsynth"
 
 [workspace]
-# members = ["gssp_utils"]
-workspace = { members = ["gssp_utils"] }
+workspace = { members = ["synth_utils", "tests", "benches", "examples"] }
 
-[workspace.dependencies]
-regex = { workspace = true, features = ["unicode"] }
+[dependencies]
 tempdir = "0.3.7"
 rand = "0.8.4"
 cc = "1.0.67"
 regex = "1.5.5"
 serde = { version = "1.0.193", features = ["alloc", "derive", "rc"] }
+cpal = { version = "0.15.2", features = ["asio", "jack", "wasm-bindgen", "oboe-shared-stdcxx"] }
 
-[dependencies]
-gssp_utils = { path = "gssp_utils" }
+# [dependencies]
+# synth_utils = { path = "synth_utils" }
 
 # Build-dependencies are used only when compiling a package for building.
-[build-dependencies]
-cc = { workspace = true }} 
+# [build-dependencies]
+# cc = { workspace = true }
 
 # Dev-depencies are used for compiling tests, examples, and benchmarks.
 # They are not used when compiling for building, and not propogated to other packages
-[dev-dependencies]
-regex = { workspace = true}
-rand = { workspace = true }
+# [dev-dependencies]
+# regex = { workspace = true}
+# rand = { workspace = true }
