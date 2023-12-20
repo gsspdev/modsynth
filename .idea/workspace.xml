@@ -62,7 +62,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "clean-start-stop",
     "last_opened_file_path": "/Users/gssp/development/rust_projects/modsynth",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -241,7 +241,7 @@
       <workItem from="1703015691641" duration="3070000" />
       <workItem from="1703018770821" duration="1540000" />
       <workItem from="1703057883208" duration="1515000" />
-      <workItem from="1703062566679" duration="6764000" />
+      <workItem from="1703062566679" duration="7543000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,7 @@
+use std::io::Read;
 use std::time::{Instant};
 use cpal::traits::{DeviceTrait, HostTrait, StreamTrait};
+use std::sync::{Arc, Mutex};
 
 pub struct AudioEnvironment {
     device: cpal::Device,
@@ -28,6 +30,10 @@ pub fn run() {
     let sample_rate = audio_env.config.sample_rate.0 as f32;
     let mut samples_played = 0f32;
 
+    // Shared stream handle
+    let stream_handle = Arc::new(Mutex::new(None));
+    let stream_handle_clone = Arc::clone(&stream_handle);
+
     let err_fn = |err| eprintln!("An error occurred on the output audio stream: {}", err);
 
     let _time: u32 = 0;
@@ -45,15 +51,21 @@ pub fn run() {
         )
         .expect("Failed to build output stream.");
 
-    stream.play().expect("Failed to start audio stream.");
+    // Store the stream in the shared handle
+    *stream_handle_clone.lock().unwrap() = Some(stream);
 
-    println!("Press Enter to stop the audio.");
-    let _ = std::io::stdin().read_line(&mut String::new());
-
-    loop {
-        let _start = Instant::now();
-        let _output = 0;
+    // Start the stream
+    if let Some(ref stream) = *stream_handle_clone.lock().unwrap() {
+        stream.play().expect("Failed to start audio stream.");
     }
+
+    println!("440hz sine wave playing. Press enter to exit.");
+    let _ = std::io::stdin().read(&mut [0u8]).unwrap();
+
+    // Stop the stream on user input
+    if let Some(ref stream) = *stream_handle.lock().unwrap() {
+        stream.pause().expect("Failed to pause the audio stream.");
+    };
 }
 
 fn main() {
