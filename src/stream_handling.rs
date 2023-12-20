@@ -1,6 +1,7 @@
 use std::io::Read;
 use std::sync::{Arc, Mutex};
 use cpal::traits::{DeviceTrait, StreamTrait};
+
 use crate::AudioEnvironment;
 
 pub fn run() {
@@ -34,14 +35,13 @@ pub fn run() {
 
     // Start the stream
     if let Some(ref stream) = *stream_handle_clone.lock().unwrap() {
-        stream.play().expect("Failed to start audio stream.");
-    }
+        stream.play().expect("Failed to start audio stream."); }
 
-    println!("440hz sine wave playing. Press enter to exit.");
+    println!("440hz sin wave test. Enter to exit.");
     let _ = std::io::stdin().read(&mut [0u8]).unwrap();
 
     // Stop the stream on user input
     if let Some(ref stream) = *stream_handle.lock().unwrap() {
-        stream.pause().expect("Failed to pause the audio stream.");
+        stream.pause().expect("Failed to pause audio stream.");
     };
 }
