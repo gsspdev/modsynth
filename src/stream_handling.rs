@@ -32,6 +32,7 @@ pub fn run() {
                 let pitch = user_pitch.unwrap_or(default_pitch);
                 
                 let half_pitch = pitch / 2.0; // temp workaround, pitch was 2x higher than expected
+                // hey look a comment
 
                 *amp_of_sample = (time * half_pitch * 2.0 * std::f32::consts::PI).sin();
                 *samples_played_lock += 1.0;
