@@ -26,12 +26,13 @@ pub fn run() {
 
             for amp_of_sample in data.iter_mut() {
                 let time = *samples_played_lock / sample_rate;
-                let mut user_pitch: Option<f32> = Some(240.0);
+                let mut user_pitch: Option<f32> = Some(240.0); // will be expanded to prompt_user() function
                 let default_pitch: f32 = 440.0;
                 
                 let pitch = user_pitch.unwrap_or(default_pitch);
                 
                 let half_pitch = pitch / 2.0; // temp workaround, pitch was 2x higher than expected
+                // hey look a comment
 
                 *amp_of_sample = (time * half_pitch * 2.0 * std::f32::consts::PI).sin();
                 *samples_played_lock += 1.0;
