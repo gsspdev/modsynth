@@ -26,7 +26,7 @@ pub fn run() {
 
             for amp_of_sample in data.iter_mut() {
                 let time = *samples_played_lock / sample_rate;
-                let mut user_pitch: Option<f32> = Some(240.0);
+                let mut user_pitch: Option<f32> = Some(240.0); // will be expanded to prompt_user() function
                 let default_pitch: f32 = 440.0;
                 
                 let pitch = user_pitch.unwrap_or(default_pitch);
