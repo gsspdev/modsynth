@@ -19,6 +19,7 @@ serde = { version = "1.0.193", features = ["alloc", "derive", "rc"] }
 cpal = { version = "0.15.2", features = ["asio", "jack", "wasm-bindgen", "oboe-shared-stdcxx"] }
 anyhow = "1.0.75"
 clap = { version = "4.4.11", features = ["env"] }
+lazy_static = { version = "1.4.0", features = ["spin", "spin_no_std"] }
 
 # [dependencies]
 # synth_utils = { path = "synth_utils" }

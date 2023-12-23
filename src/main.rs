@@ -2,6 +2,7 @@
 #![allow(dead_code)]
 mod audio_environment;
 mod stream_handling;
+mod osc_shapes;
 
 use crate::audio_environment::AudioEnvironment;
 use crate::stream_handling::run;

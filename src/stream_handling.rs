@@ -3,43 +3,36 @@ use std::sync::Mutex;
 use cpal::traits::{DeviceTrait};
 
 use crate::AudioEnvironment;
-// use crate::user_input::user_input::user_pitch;
-
-// pub fn prompt_user() {
-//     println!("Enter a pitch in Hz: ");
-//     std::io::stdin().read_line(&mut user_input).expect("Failed to read line");
-//     let user_pitch: f32 = user_input.trim().parse().expect("Please type a number!");
-//     println!("Your pitch is: {}", user_pitch);
-// }
-
+// use crate::WaveShape;
+use crate::osc_shapes::{SINOSC, WaveShape, SineWave};
+// use SineWave::generate_sin;
 
 pub fn run() {
     let audio_env = AudioEnvironment::audio_prepare();
     let sample_rate = audio_env.config.sample_rate.0 as f32;
-    let samples_played = Mutex::new(0f32); // consider wrapping in cell or refcell or mutex
+    let current_sample = Mutex::new(0f32); // consider wrapping in cell or refcell or mutex
     let err_fn = |err| eprintln!("An error occurred on the output audio stream: {}", err);
     let _time: u32 = 0;
 
     let _stream = audio_env.device
         .build_output_stream(&audio_env.config, move |data: &mut [f32], _: &cpal::OutputCallbackInfo| {
-            let mut samples_played_lock = samples_played.lock().unwrap();
+            let mut current_sample_lock = current_sample.lock().unwrap();
 
             for amp_of_sample in data.iter_mut() {
-                let time = *samples_played_lock / sample_rate;
-                let mut user_pitch: Option<f32> = Some(240.0); // will be expanded to prompt_user() function
+                let user_pitch: Option<f32> = Some(240.0); // will be expanded to prompt_user() function
                 let default_pitch: f32 = 440.0;
-                
                 let pitch = user_pitch.unwrap_or(default_pitch);
-                
-                let half_pitch = pitch / 2.0; // temp workaround, pitch was 2x higher than expected
-                // hey look a comment
 
-                *amp_of_sample = (time * half_pitch * 2.0 * std::f32::consts::PI).sin();
-                *samples_played_lock += 1.0;
+                let time = *current_sample_lock / sample_rate;
 
-                // Prints time, pitch, amp, sample # - every 1000 samples
-                if *samples_played_lock % 10000.0 == 0.0 {
-                    println!("time: {}, pitch: {}, amp_of_sample: {}, samples_played_lock: {}", time, pitch, amp_of_sample, samples_played_lock);
+                let mut sin_osc  = SINOSC.lock().unwrap();
+                *amp_of_sample = sin_osc.generate_sample(time, pitch, sample_rate);
+
+                // *amp_of_sample = (time * pitch * std::f32::consts::PI).sin();
+                *current_sample_lock += 1.0;
+
+                if *current_sample_lock <= 4000000.0 {
+                    println!("amplitude: {}, sample: {}", amp_of_sample, *current_sample_lock);
                 }
             }
         }, err_fn, None
