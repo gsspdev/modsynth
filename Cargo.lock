@@ -36,6 +36,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "alsa"
+version = "0.8.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ce34de545ad29bcc00cb1b87a94c132256dcf83aa7eeb9674482568405a6ff0a"
+dependencies = [
+ "alsa-sys",
+ "bitflags 2.4.1",
+ "libc",
+ "nix 0.26.4",
+]
+
+[[package]]
 name = "alsa-sys"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -619,7 +631,7 @@ version = "0.15.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6d959d90e938c5493000514b446987c07aed46c668faaa7d34d6c7a67b1a578c"
 dependencies = [
- "alsa",
+ "alsa 0.7.1",
  "asio-sys",
  "core-foundation-sys 0.8.6",
  "coreaudio-rs",
@@ -1683,6 +1695,8 @@ dependencies = [
 name = "modsynth"
 version = "0.1.0"
 dependencies = [
+ "alsa 0.8.1",
+ "alsa-sys",
  "anyhow",
  "audio-visualizer",
  "autopilot",
