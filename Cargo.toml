@@ -20,6 +20,36 @@ cpal = { version = "0.15.2", features = ["asio", "jack", "wasm-bindgen", "oboe-s
 anyhow = "1.0.75"
 clap = { version = "4.4.11", features = ["env"] }
 lazy_static = { version = "1.4.0", features = ["spin", "spin_no_std"] }
+tui = { version = "0.19.0", features = ["serde", "termion"] }
+colorful = "0.2.2"
+textplots = { version = "0.8.4", features = ["meval", "structopt", "tool"] }
+structopt = { version = "0.3.26", features = ["yaml"] }
+structopt-derive = { version = "0.4.18", features = ["paw"] }
+paw = "1.0.0"
+log = "0.4.20"
+hound = "3.5.1"
+dasp = "0.11.0"
+dasp_sample = "0.11.0"
+dasp_ring_buffer = "0.11.0"
+dasp_window = "0.11.0"
+dasp_interpolate = "0.11.0"
+dasp_peak = "0.11.0"
+dasp_signal = "0.11.0"
+dasp_rms = "0.11.0"
+dasp_envelope = "0.11.0"
+dasp_slice = "0.11.0"
+autopilot = "0.4.0"
+spectrum-analyzer = "1.5.0"
+audio-visualizer = "0.4.0"
+
+[dev-dependencies]
+minimp3 = "0.5.1"
+audio-visualizer = "0.4.0"
+cpal = "0.15.2"
+ringbuffer = "0.15.0"
+rand = "0.8.5" # for benchmark
+ctrlc = "~3.3.1" # locked because of repo MSRV
+criterion = "~0.4.0" # locked because of repo MSRV
 
 # [dependencies]
 # synth_utils = { path = "synth_utils" }

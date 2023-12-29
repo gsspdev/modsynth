@@ -2,7 +2,7 @@ use std::sync::Mutex;
 use lazy_static::lazy_static;
 
 pub trait WaveShape {
-    fn generate_sample(&self, time: f32, frequency: f32, sample_rate: f32) -> f32 {
+    fn generate_sample(&self, _time: f32, _frequency: f32, _sample_rate: f32) -> f32 {
         let zero_amplitude: f32 = 0.0;
         return zero_amplitude
     }

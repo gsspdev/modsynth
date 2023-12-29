@@ -2,7 +2,7 @@ use std::io::Read;
 use std::sync::Mutex;
 use cpal::traits::{DeviceTrait};
 
-use crate::AudioEnvironment;
+use crate::audio_environment::AudioEnvironment;
 // use crate::WaveShape;
 use crate::osc_shapes::{SINOSC, WaveShape, SineWave};
 // use SineWave::generate_sin;
@@ -25,7 +25,7 @@ pub fn run() {
 
                 let time = *current_sample_lock / sample_rate;
 
-                let mut sin_osc  = SINOSC.lock().unwrap();
+                let sin_osc  = SINOSC.lock().unwrap();
                 *amp_of_sample = sin_osc.generate_sample(time, pitch, sample_rate);
 
                 // *amp_of_sample = (time * pitch * std::f32::consts::PI).sin();
