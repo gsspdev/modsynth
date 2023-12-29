@@ -7,9 +7,7 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c2a2773-e656-4ff5-914c-4633fd75da8c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/stream_handling.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/stream_handling.rs" afterDir="false" />
-    </list>
+    <list default="true" id="9c2a2773-e656-4ff5-914c-4633fd75da8c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,6 +52,7 @@
     "Cargo.Build `Run event-read-char-line`.executor": "Run",
     "Cargo.Expand modsynth.executor": "Run",
     "Cargo.Run event-read-char-line.executor": "Profiler",
+    "Cargo.Run live-visualization.executor": "Run",
     "Cargo.Run modsynth (1).executor": "Run",
     "Cargo.Run modsynth.executor": "Run",
     "Cargo.Run showkey.executor": "Run",
@@ -119,6 +118,23 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Run live-visualization" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="run --package modsynth --example live-visualization" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run modsynth (1)" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="run --package modsynth --bin modsynth" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -143,23 +159,6 @@
       <option name="channel" value="DEFAULT" />
       <option name="requiredFeatures" value="true" />
       <option name="allFeatures" value="true" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <envs />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Run showkey" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="run --package rawkey --example showkey" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
       <option name="withSudo" value="false" />
       <option name="buildTarget" value="REMOTE" />
       <option name="backtrace" value="SHORT" />
@@ -207,19 +206,19 @@
     <list>
       <item itemvalue="Cargo.Run modsynth" />
       <item itemvalue="Cargo.Test modsynth" />
+      <item itemvalue="Cargo.Run live-visualization" />
       <item itemvalue="Cargo.Expand modsynth" />
       <item itemvalue="Cargo.build" />
       <item itemvalue="Cargo.Run event-read-char-line" />
       <item itemvalue="Cargo.Run modsynth (1)" />
-      <item itemvalue="Cargo.Run showkey" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Cargo.Run modsynth (1)" />
+        <item itemvalue="Cargo.Run live-visualization" />
         <item itemvalue="Cargo.Expand modsynth" />
         <item itemvalue="Cargo.build" />
         <item itemvalue="Cargo.Run event-read-char-line" />
-        <item itemvalue="Cargo.Run showkey" />
       </list>
     </recent_temporary>
   </component>
@@ -241,6 +240,7 @@
       <workItem from="1703018770821" duration="1540000" />
       <workItem from="1703057883208" duration="1515000" />
       <workItem from="1703062566679" duration="7543000" />
+      <workItem from="1703837511365" duration="5115000" />
     </task>
     <servers />
   </component>

@@ -1,14 +1,22 @@
 #![allow(unused_imports)]
 #![allow(dead_code)]
-mod audio_environment;
-mod stream_handling;
+use colorful::Colorful;
 
-use crate::audio_environment::AudioEnvironment;
-use crate::stream_handling::run;
-// use crate::stream_handling::prompt_user;
+use spectrum_analyzer::{samples_fft_to_spectrum, FrequencyLimit};
+use spectrum_analyzer::windows::hann_window;
+use spectrum_analyzer::scaling::divide_by_N_sqrt;
 
+use modsynth::live_visualization::live_visualization;
+
+use modsynth::{audio_environment, osc_math};
+use modsynth::stream_handling::run;
+use modsynth::osc_math::ShapeMath;
+use tui::widgets::canvas::Shape;
+
+// #[derive(Debug)]
 fn main() {
-    // prompt_user();
+    osc_math::test_osc_math();
     run();
-
+    // live_visualization();
 }
+

@@ -1,25 +1,21 @@
-trait WaveShape {
-    fn generate_sample(time: f32, frequency: f32, sample_rate: f32) -> f32;
-}
+use std::sync::Mutex;
+use lazy_static::lazy_static;
 
-struct SineWave;
-struct SquareWave;
-// ... other waveforms
-
-impl Waveform for SineWave {
-    fn generate_sample(time: f32, frequency: f32, _sample_rate: f32) -> f32 {
-        (time * frequency * 2.0 * std::f32::consts::PI).sin()
+pub trait WaveShape {
+    fn generate_sample(&self, _time: f32, _frequency: f32, _sample_rate: f32) -> f32 {
+        let zero_amplitude: f32 = 0.0;
+        return zero_amplitude
     }
 }
 
-impl Waveform for SquareWave {
-    fn generate_sample(time: f32, frequency: f32, _sample_rate: f32) -> f32 {
-        if (time * frequency * 2.0 * std::f32::consts::PI).sin() >= 0.0 { 1.0 } else { -1.0 }
+pub struct SineWave {}
+
+impl WaveShape for SineWave {
+    fn generate_sample(&self, time: f32, frequency: f32, _sample_rate: f32) -> f32 {
+       (time * frequency * 2.0 * std::f32::consts::PI).sin()
     }
 }
 
-// Usage in your audio callback
-let waveform: Box<dyn Waveform> = Box::new(SineWave);
-// or Box::new(SquareWave) etc.
-
-*sample = waveform.generate_sample(time, pitch, sample_rate);
+lazy_static! {
+    pub static ref SINOSC: Mutex<Box<dyn WaveShape + Send>> = Mutex::new(Box::new(SineWave {}));
+}
