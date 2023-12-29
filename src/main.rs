@@ -3,6 +3,7 @@
 mod audio_environment;
 mod stream_handling;
 mod osc_shapes;
+mod osc_math;
 
 use crate::audio_environment::AudioEnvironment;
 use crate::stream_handling::run;
