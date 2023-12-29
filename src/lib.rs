@@ -1,4 +1,3 @@
-// Export public interfaces. Those modules that aren't exposed here remain internal.
 pub mod audio_environment;
 pub mod stream_handling;
 pub mod osc_shapes;

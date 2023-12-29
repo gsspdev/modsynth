@@ -21,7 +21,6 @@ anyhow = "1.0.75"
 clap = { version = "4.4.11", features = ["env"] }
 lazy_static = { version = "1.4.0", features = ["spin", "spin_no_std"] }
 tui = { version = "0.19.0", features = ["serde", "termion"] }
-colorful = "0.2.2"
 textplots = { version = "0.8.4", features = ["meval", "structopt", "tool"] }
 structopt = { version = "0.3.26", features = ["yaml"] }
 structopt-derive = { version = "0.4.18", features = ["paw"] }
@@ -41,11 +40,10 @@ dasp_slice = "0.11.0"
 autopilot = "0.4.0"
 spectrum-analyzer = "1.5.0"
 audio-visualizer = "0.4.0"
-alsa = "0.8.1"
-alsa-sys = "0.3.1"
 jack-sys = { version = "0.5.1", features = ["default_features"] }
 jack = "0.11.4"
-jack-client = "0.1.2"
+colored = "2.1.0"
+inquire = "0.6.2"
 
 [dev-dependencies]
 minimp3 = "0.5.1"

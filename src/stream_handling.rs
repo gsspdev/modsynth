@@ -1,12 +1,10 @@
 use std::io::Read;
 use std::sync::Mutex;
 use cpal::traits::{DeviceTrait};
-use colorful::Colorful;
+use colored::*;
 
 use crate::audio_environment::AudioEnvironment;
-// use crate::WaveShape;
 use crate::osc_shapes::{SINOSC};
-// use SineWave::generate_sin;
 
 pub fn run() {
 	let audio_env = AudioEnvironment::audio_prepare();

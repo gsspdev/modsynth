@@ -1,6 +1,5 @@
-use std::clone;
 use std::string::ToString;
-use colorful::Colorful;
+use colored::*;
 
 #[derive(Clone)]
 pub enum ShapeMath {
