@@ -43,6 +43,7 @@ spectrum-analyzer = "1.5.0"
 audio-visualizer = "0.4.0"
 alsa = "0.8.1"
 alsa-sys = "0.3.1"
+jack-sys = "0.5.1"
 
 [dev-dependencies]
 minimp3 = "0.5.1"
