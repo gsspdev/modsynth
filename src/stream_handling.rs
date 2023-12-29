@@ -20,7 +20,7 @@ pub fn run() {
 			let mut current_sample_lock = current_sample.lock().unwrap();
 
 			for amp_of_sample in data.iter_mut() {
-				let user_pitch: Option<f32> = Some(240.0); // will be expanded to prompt_user() function
+				let user_pitch: Option<f32> = Some(20.0); // will be expanded to prompt_user() function
 				let default_pitch: f32 = 440.0;
 				let pitch = user_pitch.unwrap_or(default_pitch);
 
@@ -31,7 +31,7 @@ pub fn run() {
 
 				let amplitude_label = "amplitude:";
 				let colorful_amplitude_label = amplitude_label.blue().bold();
-				let colorful_amp = &amp_of_sample.to_string().green();
+				let colorful_amp = if *amp_of_sample > 0.0 { amp_of_sample.to_string().green() } else { amp_of_sample.to_string().red() };
 				
 				let sample_label = "sample:";
 				let colorful_sample_label = sample_label.blue().bold();

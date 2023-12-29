@@ -41,6 +41,11 @@ dasp_slice = "0.11.0"
 autopilot = "0.4.0"
 spectrum-analyzer = "1.5.0"
 audio-visualizer = "0.4.0"
+alsa = "0.8.1"
+alsa-sys = "0.3.1"
+jack-sys = { version = "0.5.1", features = ["default_features"] }
+jack = "0.11.4"
+jack-client = "0.1.2"
 
 [dev-dependencies]
 minimp3 = "0.5.1"
